@@ -15,13 +15,13 @@ func (PrintInfo) PrintInfo(fitFile string) {
 	ff := readFit(fitFile)
 
 	// Inspect the dynamic Product field in the FileId message
-	fmt.Println(ff.FileId.GetProduct())
+	fmt.Println("Product:", ff.FileId.GetProduct())
 
 	// Inspect the TimeCreated field in the FileId message
-	fmt.Println(ff.FileId.TimeCreated)
+	fmt.Println("Time created:", ff.FileId.TimeCreated)
 
 	// Inspect the FIT file type
-	fmt.Println(ff.Type())
+	fmt.Println("File type:", ff.Type())
 
 	// Get the actual activity
 	activity, err := ff.Activity()
@@ -29,8 +29,8 @@ func (PrintInfo) PrintInfo(fitFile string) {
 
 	fmt.Println("Sessions:")
 	for _, session := range activity.Sessions {
-		fmt.Println(session.Sport)
-		fmt.Println(session.AvgHeartRate)
+		fmt.Println(" Sport:", session.Sport)
+		fmt.Println(" AvgHeartRate:", session.AvgHeartRate)
 	}
 }
 
